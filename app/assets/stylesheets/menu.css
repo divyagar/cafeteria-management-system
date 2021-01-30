@@ -1,4 +1,102 @@
+div.menu div.main-section {
+  display: flex;
+}
+
+div.menu div.menu-sections {
+  flex: 70%;
+}
+
+div.menu div.added-items {
+  flex: 30%;
+}
+
 div.menu h2 {
+  font-size: 30px;
+  margin: 40px 0px 30px 30px;
+  text-decoration: underline;
+}
+
+div.menu h3 {
   font-size: 25px;
-  margin: 30px 0px 20px 40px;
+  /* border: 1px solid; */
+  margin: 0;
+  margin: 20px;
+}
+
+div.menu ul {
+  margin: 0px 30px;
+  font-size: 17px;
+}
+
+div.menu .item {
+  margin: 10px;
+  display: flex;
+}
+
+div.menu .item-name {}
+
+div.menu div.item-desc {
+  flex: 70%;
+}
+
+div.menu div.item-add-btn {
+  flex: 30%;
+}
+
+div.menu button {
+  background: rgb(143, 255, 143);
+  border: none;
+  padding: 15px 40px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+div.menu .add-item {
+  margin: 10px 20px;
+}
+
+div.menu .add-item div {
+  display: flex;
+  align-items: stretch;
+}
+
+div.menu div.first-row {
+  height: 50px;
+}
+
+div.menu div.second-row {
+  height: 70px;
+}
+
+div.menu .add-item input#name,
+input#price {
+  /* height: 30px; */
+  margin: 5px 10px;
+  padding: 5px 8px;
+  font-size: 18px;
+  width: 230px;
+}
+
+div.menu .add-item select#menu_id {
+  /* height: 30px; */
+  width: 180px;
+  padding: 5px 8px;
+  margin: 5px 10px;
+  font-size: 18px;
+}
+
+div.menu .add-item textarea {
+  margin: 5px 10px;
+  padding: 5px 8px;
+  font-size: 18px;
+  width: 500px;
+  /* height: 50px; */
+}
+
+div.menu .add-item input[type=submit] {
+  margin: 5px 10px;
+  font-size: 18px;
+  width: 180px;
+  cursor: pointer;
+  /* height: 50px; */
 }

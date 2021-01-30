@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       )
 
       user.save()
-      redirect_to "/menu"
+      redirect_to menus_path
     end
   end
 

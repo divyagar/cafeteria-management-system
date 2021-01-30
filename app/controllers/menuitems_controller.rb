@@ -11,13 +11,19 @@ class MenuitemsController < ApplicationController
     description = params[:description]
     price = params[:price]
 
-    menuitem = Menuitem.create!(
+    menuitem = Menuitem.new(
       menu_id: menu_id,
       name: name,
       description: description,
       price: price
     )
-    render plain: "new menuitem create with id #{menuitem.id}"
+
+    if menuitem.save
+      redirect_to menus_path
+    else
+      flash[:error] = menuitem.errors.full_messages.join(", ")
+      redirect_to menus_path
+    end
   end
 
 end

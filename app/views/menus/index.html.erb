@@ -1,0 +1,101 @@
+<div class = "menu">
+  <h2>Menu</h2>
+  <% if(@current_user.role == "Owner") %>
+    <%= form_with url: menuitems_path, class: "add-item" do |form| %>
+      <div class = "first-row">
+        <%= form.text_field :name, placeholder: "Name" %>
+        <%= form.number_field :price, placeholder: "Price" %>
+        <%= form.select :menu_id, ["1", "2", "3", "4", "5", "6"] %>
+      </div>
+
+      <div class = "second-row">
+        <%= form.text_area :description, placeholder: "Description" %>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class = "main-section">
+    <div class = "menu-sections">
+      <div class = "menu-section">
+        <h3>Breakfast</h3>
+        <ul>
+
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+          
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+          
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+
+
+        </ul>
+      </div>
+
+      <div class = "menu-section">
+        <h3>Breakfast</h3>
+        <ul>
+
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+          
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+          
+          <li class = "item">
+              <div class = "item-desc">
+                <p class = "item-name"> Item name </p>
+                <p class = "item-price"> Rs. 100 </p>
+              </div>
+              <div class = "item-add-btn">
+                <button> Add </button>
+              </div>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class = "added-items">
+
+    </div>
+  </div>
+</div>
