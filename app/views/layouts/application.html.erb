@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <% if(flash[:error]) %>
+      <div class = "error-msg">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    
+    <% if @current_user %>
+      <%= @current_user.email %>
+      <p>
+        <%= link_to "Sign-out", destroy_session_path, method: "delete" %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

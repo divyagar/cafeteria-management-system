@@ -1,5 +1,4 @@
-class OrderItem < ActiveRecord::Base
-  self.table_name = 'orderItems'
+class Orderitem < ActiveRecord::Base
   belongs_to :order
   belongs_to :menu_item
 

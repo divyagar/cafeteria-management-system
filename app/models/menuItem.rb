@@ -1,4 +1,3 @@
-class MenuItem < ActiveRecord::Base
-  self.table_name = 'menuItems'
+class Menuitem < ActiveRecord::Base
   belongs_to :menu
 end

@@ -1,0 +1,35 @@
+<div class = "user-signup">
+  <h2> Sign up </h2>
+
+  <%= form_with url: users_path do |form| %>
+    <div class = "signup-field">
+      <%= form.label :name, "name" %>
+      <%= form.text_field :name %>
+    </div>
+    
+    <div class = "signup-field">
+      <%= form.label :email, "email" %>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class = "signup-field">
+      <%= form.label :password, "password" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class = "signup-field">
+      <%= form.label :role, "role" %>
+      <%= form.select :role, ["User", "Owner", "Billing clerk"] %>
+    </div>
+    
+    <div class = "signup-field" id = "hidden_div" style = "display: none">
+      <%= form.label :code, "Secret Code" %>
+      <%= form.password_field :code %>
+    </div>
+
+    <div class = "signup-field">
+      <%= form.submit %>
+    </div>
+
+  <% end %>
+</div>
