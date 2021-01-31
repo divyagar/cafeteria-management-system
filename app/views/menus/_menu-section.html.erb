@@ -1,0 +1,28 @@
+<div class = "menu-section">
+  <h3><%= heading %></h3>
+  <ul>
+    <% menuitems.each do |menuitem| %>
+      <li class = "item">
+        <div class = "item-desc">
+          <p class = "item-name"> <%= menuitem.name %> </p>
+          <p class = "item-price"> <%= menuitem.price %> </p>
+        </div>
+
+        <div class = "item-add-btn">
+          <% if(@current_user.role == "Owner") %>
+            <%= form_with url: "/menuitems/#{menuitem.id}", method: "delete" do |form| %>
+              <%= form.submit "Delete", class: "menuitem-btn" %>
+            <% end %>
+          <% else %>
+          <%= form_with url: orderitems_path do |form| %>
+            <%= form.hidden_field :menu_item_id, value: menuitem.id %>
+            <%= form.hidden_field :menu_item_name, value: menuitem.name %>
+            <%= form.hidden_field :menu_item_price, value: menuitem.price %>
+            <%= form.submit "Add", class: "menuitem-btn" %>
+          <% end %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

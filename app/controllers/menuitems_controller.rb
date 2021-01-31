@@ -26,4 +26,10 @@ class MenuitemsController < ApplicationController
     end
   end
 
+  def destroy
+    id = params[:id]
+    Menuitem.find(id).destroy
+    redirect_to menus_path
+  end
+
 end

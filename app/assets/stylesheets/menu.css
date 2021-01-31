@@ -3,11 +3,34 @@ div.menu div.main-section {
 }
 
 div.menu div.menu-sections {
-  flex: 70%;
+  flex: 65%;
+  /* border: 1px solid; */
 }
 
 div.menu div.added-items {
   flex: 30%;
+  /* border: 1px solid; */
+}
+
+div.menu div.createorder-container {
+  margin: 0px 20px;
+  /* border: 1px solid; */
+}
+
+div.menu div.createorder-container form {
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  height: 60px;
+}
+
+div.menu div.createorder-container .createorder-btn {
+  background: rgb(143, 255, 143);
+  flex-grow: 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 div.menu h2 {
@@ -41,9 +64,11 @@ div.menu div.item-desc {
 
 div.menu div.item-add-btn {
   flex: 30%;
+  /* border: 1px solid;  */
+  text-align: center;
 }
 
-div.menu button {
+div.menu .menuitem-btn {
   background: rgb(143, 255, 143);
   border: none;
   padding: 15px 40px;
@@ -99,4 +124,33 @@ div.menu .add-item input[type=submit] {
   width: 180px;
   cursor: pointer;
   /* height: 50px; */
+}
+
+div.menu div.orderitems-container {
+  /* border: 1px solid; */
+  margin: 20px;
+}
+
+div.menu div.orderitems-container li {
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  margin: 5px 0px;
+  height: 35px;
+  align-items: center;
+}
+
+div.menu div.orderitems-container li form {
+  /* border: 1px solid; */
+  height: 100%;
+}
+
+div.menu div.orderitems-container li input {
+  height: 100%;
+  padding: 0px 20px;
+  border: none;
+  background: rgb(250, 139, 139);
+  border-radius: 10px;
+  cursor: pointer;
 }
