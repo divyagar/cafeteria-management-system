@@ -1,0 +1,35 @@
+div.user-signup {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+div.user-signup h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 1px solid;
+}
+
+div.user-signup div.signup-field {
+  margin: 20px auto;
+  width: 300px;
+}
+
+div.user-signup div.signup-field label {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+div.user-signup div.signup-field input,
+select {
+  /* height: 30px; */
+  width: 300px;
+  padding: 10px 15px;
+  font-size: 17px;
+  box-sizing: border-box;
+}
+
+div.user-signup div.signup-field input[type=submit] {
+  cursor: pointer;
+}

@@ -8,10 +8,12 @@ div.home h2 {
 }
 
 div.home div.btn-container {
+  display: flex;
+  justify-content: center;
   margin: 15px 0px;
 }
 
-div.home button {
+div.home div.btn-container input {
   margin: 0px 15px;
   padding: 5px 10px;
   font-size: 17px;

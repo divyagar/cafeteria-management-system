@@ -1,23 +1,12 @@
 <div class = "home">
   <h2> Welcome to cafeteria management system </h2>
   <div class = "btn-container">
-    <button class = "user-sign-up">
-      Sign up as user
-    </button>
-    <button class = "user-sign-in">
-      Sign in as user
-    </button>
-  </div>
+    <%= form_with url: "/signup", method: "get" do |form| %>
+      <%= form.submit "Sign up", class: "sign-up" %>
+    <% end %>
 
-  <div class = "btn-container">
-    <button class = "clerk-sign-in">
-      Sign in as clerk
-    </button>
-  </div>
-
-  <div class = "btn-container">
-    <button class = "owner-sign-in">
-      Sign in as owner
-    </button>
+    <%= form_with url: "/signin", method: "get" do |form| %>
+      <%= form.submit "Sign in", class: "sign-in" %>
+    <% end %>
   </div>
 </div>

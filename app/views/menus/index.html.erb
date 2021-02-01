@@ -1,21 +1,21 @@
 <div class = "menu">
-  <h2>Menu</h2>
-  <% if(@current_user.role == "Owner") %>
-    <%= form_with url: menuitems_path, class: "add-item" do |form| %>
-      <div class = "first-row">
-        <%= form.text_field :name, placeholder: "Name" %>
-        <%= form.number_field :price, placeholder: "Price" %>
-        <%= form.select :menu_id, ["1", "2", "3", "4", "5", "6"] %>
-      </div>
-
-      <div class = "second-row">
-        <%= form.text_area :description, placeholder: "Description" %>
-        <%= form.submit %>
-      </div>
-    <% end %>
-  <% end %>
-
   <div class = "main-section">
+    <h2>Menu</h2>
+    <% if(@current_user.role == "Owner") %>
+      <%= form_with url: menuitems_path, class: "add-item" do |form| %>
+        <div class = "first-row">
+          <%= form.text_field :name, placeholder: "Name" %>
+          <%= form.number_field :price, placeholder: "Price" %>
+          <%= form.select :menu_id, ["1", "2", "3", "4", "5", "6"] %>
+        </div>
+
+        <div class = "second-row">
+          <%= form.text_area :description, placeholder: "Description" %>
+          <%= form.submit %>
+        </div>
+      <% end %>
+    <% end %>
+
     <div class = "menu-sections">
         <% @menus.each do |menu| %>
           <%= render partial: "menu-section", locals:{
@@ -24,32 +24,40 @@
           } %>
         <% end %>
     </div>
+  </div>
 
-    <div class = "added-items">
-      <% if @current_user.role == "User" %>
-        <div class = "createorder-container">
-          <%= form_with url: orders_path do |form| %>
-            <%= form.submit "Create new order", 
-              class: "createorder-btn", 
-              disabled: @current_order == nil ? false : true 
-            %>
+  <div class = "added-items">
+    <% if @current_user.role == "User" %>
+      <div class = "createorder-container">
+        <%= form_with url: orders_path do |form| %>
+          <%= form.submit "Create new order", 
+            class: "createorder-btn", 
+            disabled: @current_order == nil ? false : true 
+          %>
+        <% end %>
+      </div>
+
+      <div class = "orderitems-container">
+        <ul>
+          <% @orderitems.each do |orderitem| %>
+            <li>
+              <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
+              <%= form_with url: "/orderitems/#{orderitem.id}", method: "delete" do |form| %>
+                <%= form.submit "Remove", class: "remove-orderitem" %>
+              <% end %>
+            </li>
           <% end %>
-        </div>
+        </ul>
+      </div>
+      
+      <div class = "checkout-container">
+        <%= form_with url: orders_path do |form| %>
+          <%= form.submit "Checkout", 
+            class: "checkout-btn"
+          %>
+        <% end %>
+      </div>
+    <% end %>
 
-        <div class = "orderitems-container">
-          <ul>
-            <% @orderitems.each do |orderitem| %>
-              <li>
-                <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
-                <%= form_with url: "/orderitems/#{orderitem.id}", method: "delete" do |form| %>
-                  <%= form.submit "Remove", class: "remove-orderitem" %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-    </div>
   </div>
 </div>

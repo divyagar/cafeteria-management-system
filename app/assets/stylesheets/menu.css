@@ -1,8 +1,8 @@
-div.menu div.main-section {
+div.menu {
   display: flex;
 }
 
-div.menu div.menu-sections {
+div.menu div.main-section {
   flex: 65%;
   /* border: 1px solid; */
 }
@@ -12,12 +12,18 @@ div.menu div.added-items {
   /* border: 1px solid; */
 }
 
-div.menu div.createorder-container {
+div.menu div.createorder-container:nth-child(1) {
+  margin: 40px 20px;
+  /* border: 1px solid; */
+}
+
+div.menu div.checkout-container {
   margin: 0px 20px;
   /* border: 1px solid; */
 }
 
-div.menu div.createorder-container form {
+div.menu div.createorder-container form,
+div.checkout-container form {
   width: 100%;
   display: flex;
   justify-content: stretch;
@@ -25,7 +31,8 @@ div.menu div.createorder-container form {
   height: 60px;
 }
 
-div.menu div.createorder-container .createorder-btn {
+div.menu .createorder-btn,
+.checkout-btn {
   background: rgb(143, 255, 143);
   flex-grow: 1;
   border: none;
@@ -129,6 +136,8 @@ div.menu .add-item input[type=submit] {
 div.menu div.orderitems-container {
   /* border: 1px solid; */
   margin: 20px;
+  height: 400px;
+  overflow: scroll;
 }
 
 div.menu div.orderitems-container li {

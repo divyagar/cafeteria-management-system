@@ -3,22 +3,22 @@
 
   <%= form_with url: users_path do |form| %>
     <div class = "signup-field">
-      <%= form.label :name, "name" %>
+      <%= form.label :name, "Name" %>
       <%= form.text_field :name %>
     </div>
     
     <div class = "signup-field">
-      <%= form.label :email, "email" %>
+      <%= form.label :email, "Email" %>
       <%= form.email_field :email %>
     </div>
 
     <div class = "signup-field">
-      <%= form.label :password, "password" %>
+      <%= form.label :password, "Password" %>
       <%= form.password_field :password %>
     </div>
 
     <div class = "signup-field">
-      <%= form.label :role, "role" %>
+      <%= form.label :role, "Role" %>
       <%= form.select :role, ["User", "Owner", "Billing clerk"] %>
     </div>
     
