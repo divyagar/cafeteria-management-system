@@ -1,6 +1,6 @@
 <div class = "user-signup">
   <h2> Sign up </h2>
-  
+
   <% if(flash[:error]) %>
     <div class = "error-msg">
       <%= flash[:error] %>
@@ -34,7 +34,7 @@
     </div>
 
     <div class = "signup-field">
-      <%= form.submit %>
+      <%= form.submit "Sign up" %>
     </div>
 
   <% end %>

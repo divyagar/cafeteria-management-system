@@ -10,16 +10,23 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% if @current_user %>
-      <div class = "signedin-user">
-        <%= @current_user.name %>
-        <p>
-          <%= link_to "Log out", destroy_session_path, method: "delete" %>
-        </p>
+      <div class = "header">
+        <div class = "project-name">
+          Cafeteria Management System
+        </div>
+        <div class = "signedin-user">
+          <%= @current_user.name %>
+          <p>
+            <%= link_to "Log out", destroy_session_path, method: "delete" %>
+          </p>
+        </div>
       </div>
     <% end %>
 

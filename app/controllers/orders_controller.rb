@@ -21,4 +21,11 @@ class OrdersController < ApplicationController
   def confirm
     render "confirm"
   end
+
+  def destroy
+    Order.find(session[:order_id]).destroy
+    session[:order_id] = nil
+    current_order = nil
+    redirect_to menus_path
+  end
 end

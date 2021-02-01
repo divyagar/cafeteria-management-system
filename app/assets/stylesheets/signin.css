@@ -4,7 +4,8 @@ div.user-signin {
 }
 
 div.user-signin h2 {
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 35px;
   margin-bottom: 40px;
   text-align: center;
   border-bottom: 1px solid;
@@ -24,11 +25,20 @@ div.user-signin div.signin-field label {
 div.user-signin div.signin-field input {
   /* height: 30px; */
   width: 300px;
-  padding: 10px 15px;
+  border: none;
+  border-bottom: 1px solid;
+  padding: 5px 0px;
   font-size: 17px;
   box-sizing: border-box;
+  outline: none;
 }
 
 div.user-signin div.signin-field input[type=submit] {
+  background: #2196f3;
+  color: white;
+  font-size: 19px;
   cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0px;
 }

@@ -4,15 +4,25 @@ div.error-msg {
 }
 
 body {
+  font-family: 'Source Sans Pro', sans-serif !important;
   margin: 0px auto !important;
   max-width: 95%;
   /* border: 1px solid !important; */
 }
 
+div.header {
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+div.header div.project-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
 div.signedin-user {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 20px;
   font-size: 20px !important;
   /* border: 1px solid; */
 }

@@ -55,15 +55,27 @@
           <% end %>
         </ul>
       </div>
-      
-      <div class = "checkout-container">
-        <%= form_with url: checkouts_path, method: "get" do |form| %>
-          <%= form.submit "Checkout", 
-            class: "checkout-btn",
-            disabled: @orderitems.count == 0
-          %>
-        <% end %>
+
+      <div class = "buttons">
+        <div class = "cancelorder">
+          <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
+            <%= form.submit "Cancel Order", 
+              class: "deleteorder-btn",
+              disabled: @current_order == nil
+            %>
+          <% end %>
+        </div>
+        
+        <div class = "checkout-container">
+          <%= form_with url: checkouts_path, method: "get" do |form| %>
+            <%= form.submit "Checkout", 
+              class: "checkout-btn",
+              disabled: @orderitems.count == 0
+            %>
+          <% end %>
+        </div>
       </div>
+
     <% end %>
 
   </div>

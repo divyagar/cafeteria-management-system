@@ -17,13 +17,23 @@ div.menu div.createorder-container:nth-child(1) {
   /* border: 1px solid; */
 }
 
-div.menu div.checkout-container {
+div.menu .buttons {
+  display: flex;
+}
+
+div.menu .buttons div {
+  flex: 49%;
   margin: 0px 20px;
+}
+
+div.menu div.checkout-container {
+  /* margin: 0px 20px; */
   /* border: 1px solid; */
 }
 
 div.menu div.createorder-container form,
-div.checkout-container form {
+div.checkout-container form,
+div.cancelorder form {
   width: 100%;
   display: flex;
   justify-content: stretch;
@@ -32,7 +42,8 @@ div.checkout-container form {
 }
 
 div.menu .createorder-btn,
-.checkout-btn {
+.checkout-btn,
+.deleteorder-btn {
   background: rgb(143, 255, 143);
   flex-grow: 1;
   border: none;
@@ -40,17 +51,19 @@ div.menu .createorder-btn,
   cursor: pointer;
 }
 
+div.menu .deleteorder-btn {
+  background: rgb(250, 139, 139);
+}
+
 div.menu h2 {
-  font-size: 30px;
-  margin: 40px 0px 30px 30px;
-  text-decoration: underline;
+  font-size: 40px;
+  margin: 40px 0px 30px 20px;
 }
 
 div.menu h3 {
   font-size: 25px;
-  /* border: 1px solid; */
-  margin: 0;
   margin: 20px;
+  width: 86%;
 }
 
 div.menu ul {
@@ -72,7 +85,7 @@ div.menu div.item-desc {
 div.menu div.item-add-btn {
   flex: 30%;
   /* border: 1px solid;  */
-  text-align: center;
+  text-align: right;
 }
 
 div.menu .menuitem-btn {

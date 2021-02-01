@@ -1,10 +1,13 @@
 div.home {
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 div.home h2 {
-  font-size: 25px;
-  margin: 30px 0px;
+  font-size: 30px;
+  margin: 150px 0px 50px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 div.home div.btn-container {
@@ -15,11 +18,12 @@ div.home div.btn-container {
 
 div.home div.btn-container input {
   margin: 0px 15px;
-  padding: 5px 10px;
-  font-size: 17px;
-  background: transparent;
+  padding: 20px 50px;
+  font-size: 19px;
+  background: #2196f3;
+  color: white;
   border: none;
-  box-shadow: 1px 1px 5px #aaa;
+  border-radius: 10px;
   cursor: pointer;
   outline: none;
 }
