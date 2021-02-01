@@ -1,0 +1,20 @@
+<div class = "confirm-order">
+  <div class = "order-received">
+    <i class="far fa-check-circle"></i>
+    We have received your order
+  </div>  
+
+  <div class = "buttons">
+    <%= form_with url: destroy_session_path, method: "delete" do |form| %>
+      <%= button_tag type: 'submit' do %>
+        Log out
+      <% end %>
+    <% end %>
+    
+    <%= form_with url: update_session_path, method: "get" do |form| %>
+      <%= button_tag type: 'submit' do %>
+        Return to dashboard
+      <% end %>
+    <% end %>
+  <div>
+</div>

@@ -17,4 +17,8 @@ class OrdersController < ApplicationController
       redirect_to menus_path
     end
   end
+
+  def confirm
+    render "confirm"
+  end
 end

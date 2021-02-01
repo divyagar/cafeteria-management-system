@@ -24,4 +24,11 @@ class SessionsController < ApplicationController
     redirect_to "/"
   end
 
+  def update
+    current_order
+    session[:order_id] = nil
+    @current_order = nil
+    redirect_to menus_path
+  end
+
 end
