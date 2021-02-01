@@ -83,6 +83,10 @@ div.menu .menuitem-btn {
   border-radius: 10px;
 }
 
+div.menu .menuitem-delete-btn {
+  background: rgb(250, 139, 139);
+}
+
 div.menu .add-item {
   margin: 10px 20px;
 }
@@ -137,7 +141,8 @@ div.menu div.orderitems-container {
   /* border: 1px solid; */
   margin: 20px;
   height: 400px;
-  overflow: scroll;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 div.menu div.orderitems-container li {

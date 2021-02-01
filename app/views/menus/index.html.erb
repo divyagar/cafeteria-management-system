@@ -1,3 +1,9 @@
+<% if(flash[:error]) %>
+  <div class = "error-msg">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <div class = "menu">
   <div class = "main-section">
     <h2>Menu</h2>
@@ -32,7 +38,7 @@
         <%= form_with url: orders_path do |form| %>
           <%= form.submit "Create new order", 
             class: "createorder-btn", 
-            disabled: @current_order == nil ? false : true 
+            disabled: @current_order != nil
           %>
         <% end %>
       </div>
@@ -51,9 +57,10 @@
       </div>
       
       <div class = "checkout-container">
-        <%= form_with url: orders_path do |form| %>
+        <%= form_with url: checkouts_path, method: "get" do |form| %>
           <%= form.submit "Checkout", 
-            class: "checkout-btn"
+            class: "checkout-btn",
+            disabled: @orderitems.count == 0
           %>
         <% end %>
       </div>

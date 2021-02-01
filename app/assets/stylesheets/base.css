@@ -1,0 +1,26 @@
+div.error-msg {
+  color: red;
+  text-align: center;
+}
+
+body {
+  margin: 0px auto !important;
+  max-width: 95%;
+  /* border: 1px solid !important; */
+}
+
+div.signedin-user {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  font-size: 20px !important;
+  /* border: 1px solid; */
+}
+
+div.signedin-user p {
+  margin-left: 40px;
+}
+
+div.signedin-user a {
+  text-decoration: none;
+}

@@ -26,8 +26,8 @@ class UsersController < ApplicationController
         session[:current_user_id] = user.id        
         redirect_to menus_path
       else
-        flash[:error] = "Error while signing up"
-        redirect_to "/"
+        flash[:error] = user.errors.full_messages.join(", ")
+        redirect_to new_users_path
       end
     end
   end

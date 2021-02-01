@@ -1,5 +1,12 @@
 <div class = "user-signin">
   <h2> Sign in! </h2>
+  
+  <% if(flash[:error]) %>
+    <div class = "error-msg">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  
   <%= form_with url: sessions_path do |form| %>
     <div class = "signin-field">
       <label> Email </label>
