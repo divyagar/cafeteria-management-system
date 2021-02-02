@@ -12,7 +12,7 @@
         <div class = "first-row">
           <%= form.text_field :name, placeholder: "Name" %>
           <%= form.number_field :price, placeholder: "Price" %>
-          <%= form.select :menu_id, ["1", "2", "3", "4", "5", "6"] %>
+          <%= form.select :menu_id, @options %>
         </div>
 
         <div class = "second-row">

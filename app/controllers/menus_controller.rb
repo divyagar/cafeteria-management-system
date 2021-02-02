@@ -8,6 +8,14 @@ class MenusController < ApplicationController
     else
       @order_id = nil
     end
+
+    @options = []
+    menus = Menu.all
+    menus.each do |menu|
+      @options << [menu.name, menu.id]
+    end
+
+    puts @options
     render "index"
   end
 end
