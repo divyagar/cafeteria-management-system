@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_100651) do
+ActiveRecord::Schema.define(version: 2021_02_02_043402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clerk", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "menuitems", force: :cascade do |t|
     t.bigint "menu_id"
