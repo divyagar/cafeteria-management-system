@@ -1,5 +1,4 @@
-class OrderitemsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class OrderItemsController < ApplicationController
 
   def create
     if current_order
@@ -7,7 +6,7 @@ class OrderitemsController < ApplicationController
       menu_item_name = params[:menu_item_name]
       menu_item_price = params[:menu_item_price]
 
-      orderitem = Orderitem.new(
+      orderitem = OrderItem.new(
         order_id: session[:order_id],
         menu_item_id: menu_item_id,
         menu_item_name: menu_item_name,
@@ -29,7 +28,7 @@ class OrderitemsController < ApplicationController
 
   def destroy
     orderitem_id = params[:id]
-    Orderitem.find(orderitem_id).destroy
+    OrderItem.find(orderitem_id).destroy
     redirect_to menus_path
   end
 end

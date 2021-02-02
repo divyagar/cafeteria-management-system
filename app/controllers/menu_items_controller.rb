@@ -1,6 +1,4 @@
-class MenuitemsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+class MenuItemsController < ApplicationController
   def index
     render plain: "This is index page"
   end
@@ -11,7 +9,7 @@ class MenuitemsController < ApplicationController
     description = params[:description]
     price = params[:price]
 
-    menuitem = Menuitem.new(
+    menuitem = MenuItem.new(
       menu_id: menu_id,
       name: name,
       description: description,
@@ -28,7 +26,7 @@ class MenuitemsController < ApplicationController
 
   def destroy
     id = params[:id]
-    Menuitem.find(id).destroy
+    MenuItem.find(id).destroy
     redirect_to menus_path
   end
 

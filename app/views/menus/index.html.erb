@@ -8,7 +8,7 @@
   <div class = "main-section">
     <h2>Menu</h2>
     <% if(@current_user.role == "Owner") %>
-      <%= form_with url: menuitems_path, class: "add-item" do |form| %>
+      <%= form_with url: menu_items_path, class: "add-item" do |form| %>
         <div class = "first-row">
           <%= form.text_field :name, placeholder: "Name" %>
           <%= form.number_field :price, placeholder: "Price" %>
@@ -26,7 +26,7 @@
         <% @menus.each do |menu| %>
           <%= render partial: "menu-section", locals:{
             heading: menu.name,
-            menuitems: menu.menuitems
+            menuitems: menu.menu_items
           } %>
         <% end %>
     </div>
@@ -50,7 +50,7 @@
             <% @orderitems.each do |orderitem| %>
               <li>
                 <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
-                <%= form_with url: "/orderitems/#{orderitem.id}", method: "delete" do |form| %>
+                <%= form_with url: "/order_items/#{orderitem.id}", method: "delete" do |form| %>
                   <%= form.submit "Remove", class: "remove-orderitem" %>
                 <% end %>
               </li>

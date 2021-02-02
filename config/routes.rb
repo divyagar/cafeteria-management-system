@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
-  resources :menuitems, :menus, :orders, :orderitems, :checkouts
+  resources :menu_items, :menus, :orders, :order_items, :checkouts
 
   get "/signup" => "users#new", as: :new_users
   post "/signup" => "users#create", as: :users

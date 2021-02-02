@@ -10,13 +10,13 @@
 
         <div class = "item-add-btn">
           <% if(@current_user.role == "Owner") %>
-            <%= form_with url: "/menuitems/#{menuitem.id}", method: "delete" do |form| %>
+            <%= form_with url: "/menu_items/#{menuitem.id}", method: "delete" do |form| %>
               <%= form.submit "Delete", 
                 class: "menuitem-btn menuitem-delete-btn"
               %>
             <% end %>
           <% else %>
-          <%= form_with url: orderitems_path do |form| %>
+          <%= form_with url: order_items_path do |form| %>
             <%= form.hidden_field :menu_item_id, value: menuitem.id %>
             <%= form.hidden_field :menu_item_name, value: menuitem.name %>
             <%= form.hidden_field :menu_item_price, value: menuitem.price %>
