@@ -6,6 +6,15 @@ div.checkout {
   font-size: 18px;
 }
 
+div.checkout div.heading {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  background: lightgray;
+  padding: 5px;
+  margin: 30px 0px 20px;
+}
+
 div.checkout div.user-info div {
   margin: 10px;
 }
@@ -46,6 +55,14 @@ div.checkout div.buttons button {
   padding: 20px 0px;
   font-size: 20px;
   cursor: pointer;
+  background: #2196f3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+div.checkout div.buttons .cancelorder-btn {
+  background: rgb(250, 139, 139);
 }
 
 div.checkout div.buttons i {

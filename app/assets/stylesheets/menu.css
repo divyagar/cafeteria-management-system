@@ -9,7 +9,12 @@ div.menu div.main-section {
 
 div.menu div.added-items {
   flex: 30%;
-  /* border: 1px solid; */
+  border-radius: 20px;
+}
+
+div.menu div.inside-added-items {
+  border-radius: 10px;
+  padding: 2px 0px 30px;
 }
 
 div.menu div.createorder-container:nth-child(1) {
@@ -132,6 +137,9 @@ div.menu .add-item select#menu_id {
   padding: 5px 8px;
   margin: 5px 10px;
   font-size: 18px;
+  border: 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 div.menu .add-item textarea {
@@ -147,7 +155,9 @@ div.menu .add-item input[type=submit] {
   font-size: 18px;
   width: 180px;
   cursor: pointer;
-  /* height: 50px; */
+  background: #2196f3;
+  border-radius: 10px;
+  border: none;
 }
 
 div.menu div.orderitems-container {

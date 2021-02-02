@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     current_user
     user_id = @current_user.id
     order = Order.new(
+      date: Date.today,
       user_id: user_id
     )
 

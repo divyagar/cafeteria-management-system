@@ -17,7 +17,7 @@
 
         <div class = "second-row">
           <%= form.text_area :description, placeholder: "Description" %>
-          <%= form.submit %>
+          <%= form.submit "Add" %>
         </div>
       <% end %>
     <% end %>
@@ -32,51 +32,53 @@
     </div>
   </div>
 
-  <div class = "added-items">
-    <% if @current_user.role == "User" %>
-      <div class = "createorder-container">
-        <%= form_with url: orders_path do |form| %>
-          <%= form.submit "Create new order", 
-            class: "createorder-btn", 
-            disabled: @current_order != nil
-          %>
-        <% end %>
-      </div>
-
-      <div class = "orderitems-container">
-        <ul>
-          <% @orderitems.each do |orderitem| %>
-            <li>
-              <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
-              <%= form_with url: "/orderitems/#{orderitem.id}", method: "delete" do |form| %>
-                <%= form.submit "Remove", class: "remove-orderitem" %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class = "buttons">
-        <div class = "cancelorder">
-          <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
-            <%= form.submit "Cancel Order", 
-              class: "deleteorder-btn",
-              disabled: @current_order == nil
+  <% @styling = @current_user.role == "User" ? 'box-shadow: -5px 0px 5px #aaa;' : "" %>
+  <div class = "added-items" >
+    <div class = "inside-added-items" style = "<%= @styling %>" > 
+      <% if @current_user.role == "User" %>
+        <div class = "createorder-container">
+          <%= form_with url: orders_path do |form| %>
+            <%= form.submit "Create new order", 
+              class: "createorder-btn", 
+              disabled: @current_order != nil
             %>
           <% end %>
         </div>
-        
-        <div class = "checkout-container">
-          <%= form_with url: checkouts_path, method: "get" do |form| %>
-            <%= form.submit "Checkout", 
-              class: "checkout-btn",
-              disabled: @orderitems.count == 0
-            %>
-          <% end %>
+
+        <div class = "orderitems-container">
+          <ul>
+            <% @orderitems.each do |orderitem| %>
+              <li>
+                <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
+                <%= form_with url: "/orderitems/#{orderitem.id}", method: "delete" do |form| %>
+                  <%= form.submit "Remove", class: "remove-orderitem" %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         </div>
-      </div>
 
-    <% end %>
+        <div class = "buttons">
+          <div class = "cancelorder">
+            <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
+              <%= form.submit "Cancel Order", 
+                class: "deleteorder-btn",
+                disabled: @current_order == nil
+              %>
+            <% end %>
+          </div>
+          
+          <div class = "checkout-container">
+            <%= form_with url: checkouts_path, method: "get" do |form| %>
+              <%= form.submit "Checkout", 
+                class: "checkout-btn",
+                disabled: @orderitems.count == 0
+              %>
+            <% end %>
+          </div>
+        </div>
 
+      <% end %>
+    </div>
   </div>
 </div>

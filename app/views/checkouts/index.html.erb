@@ -1,4 +1,8 @@
 <div class = "checkout">
+  <div class = "heading">
+    <h3> Invoice </h3>
+  </div>
+
   <div class = "user-info">
     <div>
       Name : <%= @current_user.name %>
@@ -6,6 +10,10 @@
 
     <div>
       Email : <%= @current_user.email %>
+    </div>
+
+    <div>
+      Ordered at : <%= @current_order.date.to_s(:long) %>
     </div>
   </div>
 
@@ -17,7 +25,7 @@
         <% @orderitems.each do |orderitem| %>
           <li>
             <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
-            <div class = "order-item-price"> <%= orderitem.menu_item_price %> </div>
+            <div class = "order-item-price"> <i class="fas fa-rupee-sign"></i> <%= orderitem.menu_item_price %> </div>
           </li>
           <% @totalprice += orderitem.menu_item_price %>
         <% end %>
@@ -25,19 +33,25 @@
     </div>
 
     <div class = "totalprice">
-      Total amount : <%= @totalprice %>
+      Total amount : <i class="fas fa-rupee-sign"></i> <%= @totalprice %>
     </div>
   </div>
 
   <div class = "buttons">
     <%= form_with url: menus_path, method: "get" do |form| %>
-      <%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+      <%= button_tag type: 'submit' do %>
         <i class="fas fa-arrow-left"></i> Change order
+      <% end %>
+    <% end %>
+
+    <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
+      <%= button_tag type: 'submit', class: "cancelorder-btn" do %>
+        Cancel order
       <% end %>
     <% end %>
     
     <%= form_with url: confirm_order_path, method: "get" do |form| %>
-      <%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+      <%= button_tag type: 'submit' do %>
         Confirm order <i class="fas fa-arrow-right"></i>
       <% end %>
     <% end %>

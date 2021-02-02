@@ -33,6 +33,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    render "new"
+    if current_user
+      redirect_to menus_path
+    else
+      render "new"
+    end
   end
 end
