@@ -2,12 +2,29 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :ensure_user_logged_in
 
+  def delivered
+    id = params[:id]
+    order = Order.find(id)
+    order.delivered = true
+    order.delivered_on = Time.now.in_time_zone("New Delhi")
+    order.save()
+    getOrders
+    render "index"
+  end
+
+  def index
+    getOrders
+    render "index"
+  end
+
   def create
     current_user
     user_id = @current_user.id
     order = Order.new(
-      date: Date.today,
-      user_id: user_id
+      date: Time.now,
+      user_id: user_id,
+      delivered: false,
+      total_amount: 0
     )
 
     if order.save

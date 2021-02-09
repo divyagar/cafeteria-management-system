@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
+  get "/orders/delivered/:id" => "orders#delivered", as: :order_delivered
   resources :menu_items, :menus, :orders, :order_items, :checkouts
 
   get "/signup" => "users#new", as: :new_users
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
 
   get "/confirm" => "orders#confirm", as: :confirm_order
   get "/sessions/update" => "sessions#update", as: :update_session
+
 end

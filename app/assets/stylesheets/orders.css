@@ -1,0 +1,35 @@
+div.orders-list {
+  margin: 50px 30px;
+}
+
+div.orders-list h2 {
+  font-size: 25px;
+  margin: 20px 0px;
+}
+
+div.orders-list .orders {
+  margin: 20px;
+}
+
+div.orders-list table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+}
+
+div.orders-list table th {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+div.orders-list table tr {
+  border: 1px solid;
+  padding: 20px;
+}
+
+div.orders-list table input {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+}

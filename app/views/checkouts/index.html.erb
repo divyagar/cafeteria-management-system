@@ -27,13 +27,12 @@
             <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
             <div class = "order-item-price"> <i class="fas fa-rupee-sign"></i> <%= orderitem.menu_item_price %> </div>
           </li>
-          <% @totalprice += orderitem.menu_item_price %>
         <% end %>
       </ul>
     </div>
 
     <div class = "totalprice">
-      Total amount : <i class="fas fa-rupee-sign"></i> <%= @totalprice %>
+      Total amount : <i class="fas fa-rupee-sign"></i> <%= @current_order.total_amount %>
     </div>
   </div>
 

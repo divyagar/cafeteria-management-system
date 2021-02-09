@@ -14,6 +14,10 @@ class OrderItemsController < ApplicationController
       )
 
       if orderitem.save
+        current_order
+        order = @current_order
+        order.total_amount = order.total_amount + Integer(menu_item_price)
+        order.save()
         redirect_to menus_path
       else
         flash[:error] = "some error occured while adding item to order"
