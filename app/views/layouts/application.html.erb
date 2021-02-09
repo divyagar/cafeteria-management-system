@@ -22,7 +22,12 @@
           Cafeteria Management System
         </div>
         <div class = "signedin-user">
-          <%= @current_user.name %>
+          <% if @current_user.role == "User" %>
+            <p>
+              <%= link_to "My orders", destroy_session_path, method: "get" %>
+            </p>
+          <% end %>
+          <p><%= @current_user.name %></p>
           <p>
             <%= link_to "Log out", destroy_session_path, method: "delete" %>
           </p>
