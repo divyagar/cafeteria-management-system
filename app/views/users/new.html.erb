@@ -25,7 +25,7 @@
 
     <div class = "signup-field">
       <%= form.label :role, "Role" %>
-      <%= form.select :role, ["User", "Owner", "Billing clerk"] %>
+      <%= form.select :role, @options %>
     </div>
     
     <div class = "signup-field" id = "hidden_div" style = "display: none">
@@ -38,4 +38,11 @@
     </div>
 
   <% end %>
+
+  <div class = "other-form">
+    <div> Have an account? </div>
+    <div>
+      <%= link_to "Sign in here", new_sessions_path, method: "get" %>
+    </div>
+  </div>
 </div>

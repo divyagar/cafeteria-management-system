@@ -35,3 +35,15 @@ div.signedin-user p {
 div.signedin-user a {
   text-decoration: none;
 }
+
+div.other-form {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+div.other-form a {
+  text-decoration: none;
+}

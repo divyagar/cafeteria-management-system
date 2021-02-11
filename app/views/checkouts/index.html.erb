@@ -35,24 +35,27 @@
       Total amount : <i class="fas fa-rupee-sign"></i> <%= @current_order.total_amount %>
     </div>
   </div>
+  
+  <% if @permit_edit %>
+    <div class = "buttons">
+      <%= form_with url: menus_path, method: "get" do |form| %>
+        <%= button_tag type: 'submit' do %>
+          <i class="fas fa-arrow-left"></i> Change order
+        <% end %>
+      <% end %>
 
-  <div class = "buttons">
-    <%= form_with url: menus_path, method: "get" do |form| %>
-      <%= button_tag type: 'submit' do %>
-        <i class="fas fa-arrow-left"></i> Change order
+      <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
+        <%= button_tag type: 'submit', class: "cancelorder-btn" do %>
+          Cancel order
+        <% end %>
       <% end %>
-    <% end %>
-
-    <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
-      <%= button_tag type: 'submit', class: "cancelorder-btn" do %>
-        Cancel order
+      
+      <%= form_with url: confirm_order_path, method: "get" do |form| %>
+        <%= button_tag type: 'submit' do %>
+          Confirm order <i class="fas fa-arrow-right"></i>
+        <% end %>
       <% end %>
-    <% end %>
-    
-    <%= form_with url: confirm_order_path, method: "get" do |form| %>
-      <%= button_tag type: 'submit' do %>
-        Confirm order <i class="fas fa-arrow-right"></i>
-      <% end %>
-    <% end %>
-  <div>
+    <div>
+  <% end %>
+  
 </div>

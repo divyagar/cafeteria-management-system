@@ -22,4 +22,11 @@
       <%= form.submit "Sign in", class: "form-submit" %>
     </div>
   <% end %>
+
+  <div class = "other-form">
+    <div> New user? </div>
+    <div>
+      <%= link_to "Sign up here", new_users_path, method: "get" %>
+    </div>
+  </div>
 </div>

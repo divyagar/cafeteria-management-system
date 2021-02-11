@@ -30,6 +30,12 @@
           
           <% if @current_user.role == "Owner" %>
             <p>
+              <%= link_to "Add user", new_users_path, method: "get" %>
+            </p>
+          <% end %>
+          
+          <% if @current_user.role != "User" %>
+            <p>
               <%= link_to "All Orders", orders_path, method: "get" %>
             </p>
           <% end %>

@@ -12,7 +12,7 @@
                 <th> Customer Name </th>
               <% end %>
               <th> Ordered on </th>
-              <th> Total amount </th>
+              <th> Invoice </th>
               <% if @current_user.role == "Owner" %>
                 <th> Mark as delievered </th>
               <% end %>
@@ -27,7 +27,16 @@
                   <td> <%= order.getUserName(order.user_id) %> </td>
                 <% end %>
                 <td> <%=  order.date %></td>
-                <td> <%=  order.total_amount %></td>
+
+                <td>
+                  <%= form_with url: checkouts_path, method: "get" do |form| %>
+                    <%= form.hidden_field :order_id, value: order.id %>
+                    <%= form.submit "Invoice", 
+                      class: "order-deliver-btn"
+                    %>
+                  <% end %>
+                </td>
+
                 <% if @current_user.role == "Owner" %>
                   <td>
                     <%= form_with url: "/orders/delivered/#{order.id}", method: "get" do |form| %>
@@ -37,6 +46,7 @@
                     <% end %>
                   </td>
                 <% end %>
+
               </tr>
             <% end %>
           </tbody>
@@ -59,7 +69,7 @@
               <% end %>
               <th> Ordered on </th>
               <th> Delivered on </th>
-              <th> Total amount </th>
+              <th> Invoice </th>
             </tr>
           </thead>
           
@@ -72,7 +82,16 @@
                 <% end %>
                 <td> <%=  order.date %></td>
                 <td> <%=  order.delivered_on %></td>
-                <td> <%=  order.total_amount %></td>
+
+                <td>
+                  <%= form_with url: checkouts_path, method: "get" do |form| %>
+                    <%= form.hidden_field :order_id, value: order.id %>
+                    <%= form.submit "Invoice", 
+                      class: "order-deliver-btn"
+                    %>
+                  <% end %>
+                </td>
+                
               </tr>
             <% end %>
           </tbody>
