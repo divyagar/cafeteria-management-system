@@ -17,37 +17,56 @@
 
   <body>
     <% if @current_user %>
-      <div class = "header">
-        <div class = "project-name">
-          Cafeteria Management System
-        </div>
-        <div class = "signedin-user">
-          <% if @current_user.role == "User" %>
-            <p>
-              <%= link_to "My orders", orders_path, method: "get" %>
-            </p>
-          <% end %>
-          
-          <% if @current_user.role == "Owner" %>
-            <p>
-              <%= link_to "Add user", new_users_path, method: "get" %>
-            </p>
-          <% end %>
-          
-          <% if @current_user.role != "User" %>
-            <p>
-              <%= link_to "All Orders", orders_path, method: "get" %>
-            </p>
-          <% end %>
+    <div class = "body">
+      <div class = "nav">
+        <div class = "main-nav">
+          <h2>
+            Cafeteria
+          </h2>
 
-          <p><%= @current_user.name %></p>
-          <p>
-            <%= link_to "Log out", destroy_session_path, method: "delete" %>
-          </p>
+          <div class = "body-links">
+            <p>
+              <%= link_to "Menu", menus_path, method: "get" %>
+            </p>
+
+            <% if @current_user.role == "User" %>
+              <p>
+                <%= link_to "My orders", orders_path, method: "get" %>
+              </p>
+            <% end %>
+            
+            <% if @current_user.role == "Owner" %>
+              <p>
+                <%= link_to "Add user", new_users_path, method: "get" %>
+              </p>
+            <% end %>
+            
+            <% if @current_user.role != "User" %>
+              <p>
+                <%= link_to "All Orders", orders_path, method: "get" %>
+              </p>
+            <% end %>
+
+            <p>
+              <%= link_to "Log out", destroy_session_path, method: "delete" %>
+            </p>
+          </div>
+
+          <div class = "body-page">
+            <% if @page %>
+              <p> <%= @page %> </p>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
-
-    <%= yield %>
+      
+      <div class = "main-body">
+        <%= yield %>
+      </div>
+      
+    <% if @current_user %>
+      </div>
+    <% end %>
   </body>
 </html>

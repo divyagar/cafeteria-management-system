@@ -1,5 +1,6 @@
 class CheckoutsController < ApplicationController
   def index
+    @page = "Checkout"
     if params.has_key?(:order_id)
       @permit_edit = false
       @order_id = params[:order_id]

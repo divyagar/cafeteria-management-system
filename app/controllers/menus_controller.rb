@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   def index
+    @page = "Menu"
     @menus = Menu.all
     @orderitems = OrderItem.where(order_id: session[:order_id])
     puts "orderid : #{session[:order_id]} and #{@current_order}"
@@ -15,7 +16,7 @@ class MenusController < ApplicationController
       @options << [menu.name, menu.id]
     end
 
-    puts @options
+    # puts @options
     render "index"
   end
 end

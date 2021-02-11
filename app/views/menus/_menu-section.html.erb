@@ -3,10 +3,10 @@
   <ul>
     <% menuitems.each do |menuitem| %>
       <li class = "item">
-        <div class = "item-desc">
-          <p class = "item-name"> <%= menuitem.name %> </p>
-          <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
-        </div>
+        <p class = "item-name"> <%= menuitem.name %> </p>
+        <div class = "item-image"> </div>
+        <p class = "item-desc"> <%= menuitem.description %> </p>
+        <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
 
         <div class = "item-add-btn">
           <% if(@current_user.role == "Owner") %>
@@ -15,13 +15,16 @@
                 class: "menuitem-btn menuitem-delete-btn"
               %>
             <% end %>
-          <% else %>
-          <%= form_with url: order_items_path do |form| %>
-            <%= form.hidden_field :menu_item_id, value: menuitem.id %>
-            <%= form.hidden_field :menu_item_name, value: menuitem.name %>
-            <%= form.hidden_field :menu_item_price, value: menuitem.price %>
-            <%= form.submit "Add", class: "menuitem-btn" %>
           <% end %>
+
+          <% if @current_user.role == "User" %>
+            <%= form_with url: order_items_path do |form| %>
+              <%= form.hidden_field :menu_item_id, value: menuitem.id %>
+              <%= form.hidden_field :menu_item_name, value: menuitem.name %>
+              <%= form.hidden_field :menu_item_price, value: menuitem.price %>
+              <%= form.number_field :quantity, placeholder: "Quantity" %>
+              <%= form.submit "Add", class: "menuitem-btn" %>
+            <% end %>
           <% end %>
         </div>
       </li>

@@ -7,6 +7,14 @@
 <div class = "menu">
   <div class = "main-section">
     <h2>Menu</h2>
+
+    <%= form_with url: orders_path do |form| %>
+      <%= form.submit "Create new order", 
+        class: "createorder-btn", 
+        disabled: @current_order != nil
+      %>
+    <% end %>
+    
     <% if(@current_user.role == "Owner") %>
       <%= form_with url: menu_items_path, class: "add-item" do |form| %>
         <div class = "first-row">
@@ -32,27 +40,22 @@
     </div>
   </div>
 
-  <% @styling = @current_user.role == "User" ? 'box-shadow: -5px 0px 5px #aaa;' : "" %>
-  <div class = "added-items" >
-    <div class = "inside-added-items" style = "<%= @styling %>" > 
-      <% if @current_user.role == "User" %>
-        <div class = "createorder-container">
-          <%= form_with url: orders_path do |form| %>
-            <%= form.submit "Create new order", 
-              class: "createorder-btn", 
-              disabled: @current_order != nil
-            %>
-          <% end %>
-        </div>
+  <% if @current_order && @orderitems.count > 0 %>
+    <div class = "added-items" >
+      <div class = "inside-added-items" > 
+        <h3> Order Items </h3>
 
         <div class = "orderitems-container">
           <ul>
             <% @orderitems.each do |orderitem| %>
               <li>
                 <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
-                <%= form_with url: "/order_items/#{orderitem.id}", method: "delete" do |form| %>
-                  <%= form.submit "Remove", class: "remove-orderitem" %>
-                <% end %>
+                <div class = "priceAndButton">
+                  <p><i class="fas fa-rupee-sign"></i> <%= orderitem.menu_item_price %>  * <%= orderitem.quantity %> </p>
+                  <%= form_with url: "/order_items/#{orderitem.id}", method: "delete" do |form| %>
+                    <%= form.submit "Remove", class: "remove-orderitem" %>
+                  <% end %>
+                </div>
               </li>
             <% end %>
           </ul>
@@ -77,8 +80,7 @@
             <% end %>
           </div>
         </div>
-
-      <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

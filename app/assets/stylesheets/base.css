@@ -6,8 +6,8 @@ div.error-msg {
 body {
   font-family: 'Source Sans Pro', sans-serif !important;
   margin: 0px auto !important;
-  max-width: 95%;
   /* border: 1px solid !important; */
+  min-height: 100vh;
 }
 
 div.header {
@@ -46,4 +46,57 @@ div.other-form {
 
 div.other-form a {
   text-decoration: none;
+}
+
+div.body {
+  display: flex;
+}
+
+div.body div.nav {
+  flex: 25%;
+  background: #102A43;
+  color: white;
+  position: relative;
+}
+
+div.nav div.main-nav {
+  position: sticky;
+  top: 0;
+  right: 0;
+  /* border: 1px solid; */
+  padding: 30px 10px 30px 15px;
+}
+
+div.nav div.main-nav h2 {
+  font-size: 35px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  color: #BCCCDC;
+}
+
+div.main-nav div.body-links {
+  margin-bottom: 50px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+div.nav div.main-nav p {
+  margin: 5px 0px;
+}
+
+div.body div.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+div.body div.main-body {
+  flex: 75%;
+  min-height: 100vh;
+}
+
+div.main-nav div.body-page {
+  font-size: 30px;
+  color: #F0F4F8;
+  text-align: center;
 }

@@ -9,10 +9,12 @@ class OrdersController < ApplicationController
     order.delivered_on = Time.now.in_time_zone("New Delhi")
     order.save()
     getOrders
+    # @page = "Orders"
     render "index"
   end
 
   def index
+    # @page = "Orders"
     getOrders
     render "index"
   end
@@ -37,6 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    @page = "Confirm order"
     render "confirm"
   end
 

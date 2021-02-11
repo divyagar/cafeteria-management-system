@@ -31,9 +31,11 @@ class ApplicationController < ActionController::Base
     if @current_user.role == "User"
       @pending_orders = Order.where("user_id = ? and delivered = false", @current_user.id)
       @delivered_orders = Order.where("user_id = ? and delivered = true", @current_user.id)
+      @page = "My orders"
     else
       @pending_orders = Order.where(delivered: false)
       @delivered_orders = Order.where(delivered: true)
+      @page = "All orders"
     end
   end
 end
