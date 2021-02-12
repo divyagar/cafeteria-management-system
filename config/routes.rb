@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
   get "/orders/delivered/:id" => "orders#delivered", as: :order_delivered
+  get "/change_menu" => "menus#change_menu", as: :change_menus
   resources :menu_items, :menus, :orders, :order_items, :checkouts
 
   get "/signup" => "users#new", as: :new_users

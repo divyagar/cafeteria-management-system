@@ -1,5 +1,6 @@
 div.menu {
   display: flex;
+  background: #F0F4F8;
 }
 
 div.menu div.main-section {
@@ -7,8 +8,15 @@ div.menu div.main-section {
   /* border: 1px solid; */
 }
 
+div.menu div.main-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 150px 5px 15px;
+  /* padding-right: 150px; */
+}
+
 div.menu div.added-items {
-  /* border: 1px solid; */
   flex: 30%;
   border-radius: 20px;
   position: relative;
@@ -17,7 +25,6 @@ div.menu div.added-items {
 div.menu div.inside-added-items {
   border-radius: 10px;
   padding: 2px 0px 30px;
-  /* border: 1px solid; */
   color: white;
   background: #102A43;
   position: sticky;
@@ -26,7 +33,6 @@ div.menu div.inside-added-items {
 
 div.menu div.createorder-container:nth-child(1) {
   margin: 40px 20px;
-  /* border: 1px solid; */
 }
 
 div.menu .buttons {
@@ -38,29 +44,34 @@ div.menu .buttons div {
   margin: 0px 20px;
 }
 
-div.menu div.checkout-container {
-  /* margin: 0px 20px; */
-  /* border: 1px solid; */
+div.menu .createorder-btn,
+.deleteorder-btn,
+.checkout-btn {
+  /* width: 100%; */
+  /* display: flex; */
+  font-size: 18px;
+  /* justify-content: stretch;
+  align-items: stretch; */
+  padding: 10px 20px;
+  /* height: 50px; */
 }
 
-div.menu div.createorder-container form,
-div.checkout-container form,
-div.cancelorder form {
+div.menu .deleteorder-btn,
+.checkout-btn {
+  padding: 5px 10px;
+  font-size: 16px;
   width: 100%;
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-  height: 50px;
+  text-align: center;
 }
 
 div.menu .createorder-btn,
 .checkout-btn,
 .deleteorder-btn {
-  background: rgb(143, 255, 143);
-  flex-grow: 1;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
+  background: #2196f3;
+  color: white;
 }
 
 div.menu .deleteorder-btn {
@@ -69,7 +80,7 @@ div.menu .deleteorder-btn {
 
 div.menu h2 {
   font-size: 40px;
-  margin: 40px 0px 30px 20px;
+  /* margin: 40px 0px 30px 20px; */
 }
 
 div.menu h3 {
@@ -87,42 +98,53 @@ div.menu ul {
 
 div.menu .item {
   margin: 10px;
+  background: white;
   padding-bottom: 10px;
+  border-radius: 10px;
+  padding: 5px;
   /* display: flex; */
   width: 180px;
   /* border: 1px solid; */
   text-align: center;
+  /* box-shadow: 2px 2px 5px rgb(148, 148, 148); */
 }
 
 div.menu .item .item-image {
-  width: 100%;
+  width: 90%;
+  margin: 10px auto;
   height: 90px;
   border: 1px solid;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  border-radius: 10px;
 }
 
-div.menu .item-name {}
-
-div.menu div.item-desc {
-  /* flex: 70%; */
-}
-
-div.menu div.item-add-btn {
-  /* flex: 30%; */
-  /* border: 1px solid;  */
-  /* text-align: right; */
+div.menu .item input[type=number] {
+  /* border: none; */
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid #0A6C74;
+  padding: 4px 7px;
+  margin: 2px 0px;
+  font-size: 15px;
 }
 
 div.menu .menuitem-btn {
-  background: rgb(143, 255, 143);
+  background: #2196f3;
+  /* border: 3px solid #102A43; */
   border: none;
-  padding: 15px 40px;
+  color: white;
+  font-size: 16px;
+  padding: 10px 0px;
   cursor: pointer;
   border-radius: 10px;
+  margin: 3px 0px;
+  width: 100%;
 }
 
 div.menu .menuitem-delete-btn {
   background: rgb(250, 139, 139);
+  /* background: #D64545; */
+  /* color: white; */
 }
 
 div.menu .add-item {
@@ -189,7 +211,7 @@ div.menu div.orderitems-container {
 }
 
 div.menu div.orderitems-container li {
-  border: 1px solid;
+  /* border: 1px solid; */
   /* display: flex; */
   justify-content: space-between;
   padding: 5px 10px;
@@ -202,6 +224,7 @@ div.menu div.orderitems-container li {
 div.orderitems-container li div.priceAndButton {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 div.menu div.orderitems-container li form {
@@ -210,10 +233,12 @@ div.menu div.orderitems-container li form {
 }
 
 div.menu div.orderitems-container li input {
-  height: 20px;
-  padding: 0px 20px;
+  /* height: 20px; */
+  padding: 5px 20px;
+  font-size: 16px;
   border: none;
   background: rgb(250, 139, 139);
+  color: white;
   border-radius: 4px;
   cursor: pointer;
 }

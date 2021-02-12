@@ -28,8 +28,17 @@ div.orders-list table tr {
   padding: 20px;
 }
 
+div.orders-list table td {
+  padding: 0px 10px;
+}
+
 div.orders-list table input {
   width: 100%;
   height: 30px;
   cursor: pointer;
+  background: #2CB1BC;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
 }

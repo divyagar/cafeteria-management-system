@@ -1,21 +1,29 @@
 <% if(flash[:error]) %>
-  <div class = "error-msg">
+  <div class = "error-msg flash-message">
     <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if(flash[:success]) %>
+  <div class = "success-msg flash-message">
+    <%= flash[:success] %>
   </div>
 <% end %>
 
 <div class = "menu">
   <div class = "main-section">
-    <h2>Menu</h2>
+    <div class = "main-section-heading">
+      <h2>Menu</h2>
 
-    <%= form_with url: orders_path do |form| %>
-      <%= form.submit "Create new order", 
-        class: "createorder-btn", 
-        disabled: @current_order != nil
-      %>
-    <% end %>
+      <% if @current_user && @current_user.role != "Billing clerk" && @page == "Menu" %>
+        <% @styling = (@current_order != nil) ? "display: none;" : " " %>
+        <%= form_with url: orders_path do |form| %>
+          <%= form.submit "Create new order", style: "#{@styling}", class: "createorder-btn"%>
+        <% end %>
+      <% end %>
+    </div>
     
-    <% if(@current_user.role == "Owner") %>
+    <% if @current_user.role == "Owner" && @page == "Change menu" %>
       <%= form_with url: menu_items_path, class: "add-item" do |form| %>
         <div class = "first-row">
           <%= form.text_field :name, placeholder: "Name" %>

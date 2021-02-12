@@ -39,6 +39,10 @@
               <p>
                 <%= link_to "Add user", new_users_path, method: "get" %>
               </p>
+              
+              <p>
+                <%= link_to "Change menu", change_menus_path, method: "get" %>
+              </p>
             <% end %>
             
             <% if @current_user.role != "User" %>

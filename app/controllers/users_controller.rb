@@ -24,7 +24,8 @@ class UsersController < ApplicationController
 
       if user.save
         if current_user && @current_user.role == "Owner"
-          redirect_to menus_path
+          flash[:success] = "User #{name} has been created."
+          redirect_to "/signup"
         else
           session[:current_user_id] = user.id
           redirect_to menus_path
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
     else
       @options = ["User", "Owner"]
       if current_user && @current_user.role == "Owner"
+        @page = "Add User"
         @options << "Billing clerk"
       end
       render "new"

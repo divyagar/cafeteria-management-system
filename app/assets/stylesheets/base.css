@@ -1,6 +1,16 @@
-div.error-msg {
-  color: red;
+div.flash-message {
+  padding: 5px 0px;
+  font-size: 17px;
+  color: white;
   text-align: center;
+}
+
+div.error-msg {
+  background: red;
+}
+
+div.success-msg {
+  background: rgb(86, 228, 86);
 }
 
 body {
