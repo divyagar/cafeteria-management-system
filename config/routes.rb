@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get "/" => "home#index"
-  get "/orders/delivered/:id" => "orders#delivered", as: :order_delivered
+  post "/orders/delivered/:id" => "orders#delivered", as: :order_delivered
   get "/change_menu" => "menus#change_menu", as: :change_menus
-  resources :menu_items, :menus, :orders, :order_items, :checkouts
+  get "/create_all_orders" => "order_items#create_all_orders", as: :create_all_orders
+  resources :menu_items, :menus, :orders, :order_items, :checkouts, :cart_items
 
   get "/signup" => "users#new", as: :new_users
   post "/signup" => "users#create", as: :users

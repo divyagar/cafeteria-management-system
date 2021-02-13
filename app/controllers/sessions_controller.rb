@@ -21,6 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    @cartitems = CartItem.where(user_id: session[:current_user_id])
+    @cartitems.destroy_all
     session[:current_user_id] = nil
     @current_user = nil
     session[:order_id] = nil

@@ -44,14 +44,19 @@ div.checkout div.buttons {
   display: flex;
 }
 
-div.checkout div.buttons form {
+div.checkout div.buttons div {
   flex: 50%;
   text-align: center;
   /* border: 1px solid; */
 }
 
-div.checkout div.buttons button {
+div.checkout div.buttons button,
+a.done-btn {
+  margin: 0px auto;
+  text-decoration: none;
+  display: block;
   width: 80%;
+  border: 1px solid;
   padding: 20px 0px;
   font-size: 20px;
   cursor: pointer;

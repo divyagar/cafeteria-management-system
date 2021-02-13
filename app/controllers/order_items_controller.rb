@@ -1,5 +1,4 @@
 class OrderItemsController < ApplicationController
-
   def create
     if current_order
       menu_item_id = params[:menu_item_id]
@@ -40,5 +39,29 @@ class OrderItemsController < ApplicationController
     @current_order.save()
     order.destroy
     redirect_to menus_path
+  end
+
+  def create_all_orders
+    @cartitems = CartItem.where(user_id: session[:current_user_id])
+    @order_id = session[:order_id]
+    @total_amount = 0
+    @cartitems.each do |cartitem|
+      @menuitem = cartitem.menu_item
+      orderitem = OrderItem.create(
+        order_id: session[:order_id],
+        menu_item_id: @menuitem.id,
+        menu_item_name: @menuitem.name,
+        menu_item_price: @menuitem.price,
+        quantity: cartitem.quantity
+      )
+
+      @total_amount += (@menuitem.price * cartitem.quantity)
+    end
+
+    @order = Order.find(@order_id)
+    @order.total_amount = @total_amount
+    @order.save
+    @cartitems.destroy_all
+    redirect_to checkouts_path
   end
 end

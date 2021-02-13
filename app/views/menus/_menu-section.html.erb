@@ -8,7 +8,7 @@
         <p class = "item-desc"> <%= menuitem.description %> </p>
         <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
 
-        <div class = "item-add-btn">
+        <div class = "item-buttons">
           <% if @current_user.role == "Owner" && @page == "Change menu" %>
             <%= form_with url: "/menu_items/#{menuitem.id}", method: "delete" do |form| %>
               <%= form.submit "Delete", 
@@ -18,10 +18,8 @@
           <% end %>
 
           <% if @current_user.role != "Billing clerk" && @page == "Menu" %>
-            <%= form_with url: order_items_path do |form| %>
+            <%= form_with url: cart_items_path do |form| %>
               <%= form.hidden_field :menu_item_id, value: menuitem.id %>
-              <%= form.hidden_field :menu_item_name, value: menuitem.name %>
-              <%= form.hidden_field :menu_item_price, value: menuitem.price %>
               <%= form.number_field :quantity, placeholder: "Quantity" %>
               <%= form.submit "Add", class: "menuitem-btn" %>
             <% end %>

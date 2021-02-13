@@ -7,7 +7,7 @@
         <table>
           <thead>
             <tr>
-              <th> Ordered id </th>
+              <th> Order id </th>
               <% if @current_user.role == "Owner" %>
                 <th> Customer Name </th>
               <% end %>
@@ -39,7 +39,7 @@
 
                 <% if @current_user.role == "Owner" %>
                   <td>
-                    <%= form_with url: "/orders/delivered/#{order.id}", method: "get" do |form| %>
+                    <%= form_with url: "/orders/delivered/#{order.id}" do |form| %>
                       <%= form.submit "Delivered", 
                         class: "order-deliver-btn"
                       %>
@@ -63,7 +63,7 @@
         <table>
           <thead>
             <tr>
-              <th> Ordered id </th>
+              <th> Order id </th>
               <% if @current_user.role == "Owner" %>
                 <th> Customer Name </th>
               <% end %>

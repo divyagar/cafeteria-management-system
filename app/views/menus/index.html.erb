@@ -14,13 +14,6 @@
   <div class = "main-section">
     <div class = "main-section-heading">
       <h2>Menu</h2>
-
-      <% if @current_user && @current_user.role != "Billing clerk" && @page == "Menu" %>
-        <% @styling = (@current_order != nil) ? "display: none;" : " " %>
-        <%= form_with url: orders_path do |form| %>
-          <%= form.submit "Create new order", style: "#{@styling}", class: "createorder-btn"%>
-        <% end %>
-      <% end %>
     </div>
     
     <% if @current_user.role == "Owner" && @page == "Change menu" %>
@@ -48,19 +41,20 @@
     </div>
   </div>
 
-  <% if @current_order && @orderitems.count > 0 %>
+  <% if @cartitems && @cartitems.count > 0 %>
     <div class = "added-items" >
       <div class = "inside-added-items" > 
-        <h3> Order Items </h3>
+        <h3> Cart </h3>
 
-        <div class = "orderitems-container">
+        <div class = "cartitems-container">
           <ul>
-            <% @orderitems.each do |orderitem| %>
+            <% @cartitems.each do |cartitem| %>
+              <% @menuitem = cartitem.cartitem_info(cartitem.menu_item_id) %>
               <li>
-                <div class = "order-item-name"> <%= orderitem.menu_item_name %> </div>
+                <div class = "order-item-name"> <%= @menuitem.name %> </div>
                 <div class = "priceAndButton">
-                  <p><i class="fas fa-rupee-sign"></i> <%= orderitem.menu_item_price %>  * <%= orderitem.quantity %> </p>
-                  <%= form_with url: "/order_items/#{orderitem.id}", method: "delete" do |form| %>
+                  <p><i class="fas fa-rupee-sign"></i> <%= @menuitem.price %>  * <%= cartitem.quantity %> </p>
+                  <%= form_with url: "/cart_items/#{cartitem.id}", method: "delete" do |form| %>
                     <%= form.submit "Remove", class: "remove-orderitem" %>
                   <% end %>
                 </div>
@@ -70,20 +64,11 @@
         </div>
 
         <div class = "buttons">
-          <div class = "cancelorder">
-            <%= form_with url: "/orders/#{@order_id}", method: "delete" do |form| %>
-              <%= form.submit "Cancel Order", 
-                class: "deleteorder-btn",
-                disabled: @current_order == nil
-              %>
-            <% end %>
-          </div>
-          
           <div class = "checkout-container">
-            <%= form_with url: checkouts_path, method: "get" do |form| %>
+            <%= form_with url: orders_path, method: "post" do |form| %>
               <%= form.submit "Checkout", 
                 class: "checkout-btn",
-                disabled: @orderitems.count == 0
+                disabled: @cartitems.count == 0
               %>
             <% end %>
           </div>

@@ -2,20 +2,30 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :ensure_user_logged_in
 
+  def get_orders
+    current_user
+    if @current_user.role == "User"
+      @pending_orders = Order.pending_orders_for(@current_user)
+      @delivered_orders = Order.delivered_orders_for(@current_user)
+      @page = "My orders"
+    else
+      @pending_orders = Order.pending_orders
+      @delivered_orders = Order.delivered_orders
+      @page = "All orders"
+    end
+  end
+
   def delivered
     id = params[:id]
     order = Order.find(id)
     order.delivered = true
     order.delivered_on = Time.now.in_time_zone("New Delhi")
     order.save()
-    getOrders
-    # @page = "Orders"
-    render "index"
+    redirect_to orders_path
   end
 
   def index
-    # @page = "Orders"
-    getOrders
+    get_orders
     render "index"
   end
 
@@ -31,7 +41,7 @@ class OrdersController < ApplicationController
 
     if order.save
       session[:order_id] = order.id
-      redirect_to menus_path
+      redirect_to create_all_orders_path
     else
       flash[:error] = "some error occurred while creating order"
       redirect_to menus_path
@@ -44,7 +54,11 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    Order.find(session[:order_id]).destroy
+    @order = Order.find(session[:order_id])
+    @orderitems = @order.order_items
+    @orderitems.destroy_all
+    @order.destroy
+
     session[:order_id] = nil
     current_order = nil
     redirect_to menus_path

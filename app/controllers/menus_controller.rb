@@ -16,12 +16,7 @@ class MenusController < ApplicationController
     @page = "Menu"
     @menus = Menu.all
     current_user
-    @orderitems = OrderItem.where(order_id: session[:order_id])
-    if current_order
-      @order_id = @current_order.id
-    else
-      @order_id = nil
-    end
+    @cartitems = @current_user.cart_items
 
     render "index"
   end

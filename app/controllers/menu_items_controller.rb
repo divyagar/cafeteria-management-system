@@ -1,8 +1,4 @@
 class MenuItemsController < ApplicationController
-  def index
-    render plain: "This is index page"
-  end
-
   def create
     menu_id = params[:menu_id]
     name = params[:name]
