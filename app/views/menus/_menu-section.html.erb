@@ -1,31 +1,45 @@
 <div class = "menu-section">
-  <h3><%= heading %></h3>
-  <ul>
-    <% menuitems.each do |menuitem| %>
-      <li class = "item">
-        <p class = "item-name"> <%= menuitem.name %> </p>
-        <div class = "item-image"> </div>
-        <p class = "item-desc"> <%= menuitem.description %> </p>
-        <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
-
-        <div class = "item-buttons">
-          <% if @current_user.role == "Owner" && @page == "Change menu" %>
-            <%= form_with url: "/menu_items/#{menuitem.id}", method: "delete" do |form| %>
-              <%= form.submit "Delete", 
-                class: "menuitem-btn menuitem-delete-btn"
-              %>
-            <% end %>
-          <% end %>
-
-          <% if @current_user.role != "Billing clerk" && @page == "Menu" %>
-            <%= form_with url: cart_items_path do |form| %>
-              <%= form.hidden_field :menu_item_id, value: menuitem.id %>
-              <%= form.number_field :quantity, placeholder: "Quantity" %>
-              <%= form.submit "Add", class: "menuitem-btn" %>
-            <% end %>
-          <% end %>
-        </div>
-      </li>
+  <div class = "heading-and-form">
+    <h3><%= heading %></h3>
+    
+    <% if(@page == "Modify menu") %>
+      <%= form_with url: "/menus/#{id}", class: "deletemenu-form", method: "delete" do |form| %>
+        <%= form.submit "Delete", 
+          class: "menu-delete-btn"
+        %>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
+
+  <% if @page != "Modify menu" %>
+    <ul>
+      <% menuitems.each do |menuitem| %>
+        <li class = "item">
+          <p class = "item-name"> <%= menuitem.name %> </p>
+          <div class = "item-image"> </div>
+          <p class = "item-desc"> <%= menuitem.description %> </p>
+          <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
+
+          <div class = "item-buttons">
+            <% if @current_user.role == "Owner" && @page == "Modify menu items" %>
+              <%= form_with url: "/menu_items/#{menuitem.id}", method: "delete" do |form| %>
+                <%= form.submit "Delete", 
+                  class: "menuitem-btn menuitem-delete-btn"
+                %>
+              <% end %>
+            <% end %>
+
+            <% if @current_user.role != "Billing clerk" && @page == "Menu" %>
+              <%= form_with url: cart_items_path do |form| %>
+                <%= form.hidden_field :menu_item_id, value: menuitem.id %>
+                <%= form.number_field :quantity, placeholder: "Quantity" %>
+                <%= form.submit "Add", class: "menuitem-btn" %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    
+  <% end %>
 </div>

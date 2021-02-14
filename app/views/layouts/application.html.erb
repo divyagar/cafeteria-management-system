@@ -39,9 +39,13 @@
               <p>
                 <%= link_to "Add user", new_users_path, method: "get" %>
               </p>
+
+              <p>
+                <%= link_to "Modify menu", change_menus_path, method: "get" %>
+              </p>
               
               <p>
-                <%= link_to "Change menu", change_menus_path, method: "get" %>
+                <%= link_to "Modify menu items", change_menus_items_path, method: "get" %>
               </p>
             <% end %>
             

@@ -16,7 +16,14 @@
       <h2>Menu</h2>
     </div>
     
-    <% if @current_user.role == "Owner" && @page == "Change menu" %>
+    <% if @current_user.role == "Owner" && @page == "Modify menu" %>
+      <%= form_with url: menus_path, class: "add-menu" do |form| %>
+        <%= form.text_field :name, placeholder: "Name" %>
+        <%= form.submit "Add" %>
+      <% end %>
+    <% end %>
+    
+    <% if @current_user.role == "Owner" && @page == "Modify menu items" %>
       <%= form_with url: menu_items_path, class: "add-item" do |form| %>
         <div class = "first-row">
           <%= form.text_field :name, placeholder: "Name" %>
@@ -35,6 +42,7 @@
         <% @menus.each do |menu| %>
           <%= render partial: "menu-section", locals:{
             heading: menu.name,
+            id: menu.id,
             menuitems: menu.menu_items
           } %>
         <% end %>

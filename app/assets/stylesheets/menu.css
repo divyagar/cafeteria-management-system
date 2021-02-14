@@ -87,7 +87,8 @@ div.menu .item input[type=number] {
   font-size: 15px;
 }
 
-div.menu .menuitem-btn {
+div.menu .menuitem-btn,
+.menu-delete-btn {
   background: #2196f3;
   border: none;
   color: white;
@@ -99,8 +100,25 @@ div.menu .menuitem-btn {
   width: 100%;
 }
 
-div.menu .menuitem-delete-btn {
+div.menu .menuitem-delete-btn,
+.menu-delete-btn {
   background: rgb(250, 139, 139);
+}
+
+div.menu div.menu-section {
+  /* border: 1px solid; */
+}
+
+div.menu div.menu-section .heading-and-form {
+  display: flex;
+  /* border: 1px solid; */
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 335px;
+}
+
+div.menu .menu-delete-btn {
+  padding: 10px 30px;
 }
 
 div.menu .add-item {
@@ -125,11 +143,11 @@ input#price {
   margin: 5px 10px;
   padding: 5px 8px;
   font-size: 18px;
-  width: 230px;
+  width: 210px;
 }
 
 div.menu .add-item select#menu_id {
-  width: 180px;
+  width: 220px;
   padding: 5px 8px;
   margin: 5px 10px;
   font-size: 18px;
@@ -142,17 +160,38 @@ div.menu .add-item textarea {
   margin: 5px 10px;
   padding: 5px 8px;
   font-size: 18px;
-  width: 500px;
+  width: 460px;
 }
 
-div.menu .add-item input[type=submit] {
+div.menu .add-item input[type=submit],
+.add-menu input[type=submit] {
   margin: 5px 10px;
   font-size: 18px;
-  width: 180px;
+  width: 220px;
   cursor: pointer;
   background: #2196f3;
   border-radius: 10px;
   border: none;
+}
+
+div.menu .add-menu {
+  width: 75%;
+  /* border: 1px solid; */
+  margin: 10px 20px;
+  display: flex;
+}
+
+div.menu .add-menu input#name {
+  flex: 60%;
+  margin: 5px 10px;
+  padding: 7px 8px;
+  font-size: 18px;
+  width: 300px;
+}
+
+div.menu .add-menu input[type=submit] {
+  flex: 40%;
+  padding: 10px 0px;
 }
 
 div.menu div.cartitems-container {

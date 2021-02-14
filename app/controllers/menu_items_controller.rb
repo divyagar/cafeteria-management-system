@@ -14,10 +14,10 @@ class MenuItemsController < ApplicationController
 
     if menuitem.save
       flash[:success] = "Menu item #{name} is created"
-      redirect_to change_menus_path
+      redirect_to change_menus_items_path
     else
       flash[:error] = menuitem.errors.full_messages.join(", ")
-      redirect_to change_menus_path
+      redirect_to change_menus_items_path
     end
   end
 
@@ -27,10 +27,10 @@ class MenuItemsController < ApplicationController
     name = menuitem.name
     if menuitem.destroy
       flash[:success] = "Menu item #{name} is deleted"
-      redirect_to change_menus_path
+      redirect_to change_menus_items_path
     else
       flash[:error] = menuitem.error.full_messages.join(", ")
-      redirect_to change_menus_path
+      redirect_to change_menus_items_path
     end
   end
 
