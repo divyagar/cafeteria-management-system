@@ -11,7 +11,11 @@
 <% end %>
 
 <div class = "user-signup">
-  <h2> Sign up </h2>
+  <% if @page %>
+    <h2> Add User </h2>
+  <% else %>
+    <h2> Sign up </h2>
+  <% end %>
 
 
   <%= form_with url: users_path do |form| %>
@@ -41,7 +45,11 @@
     </div>
 
     <div class = "signup-field">
-      <%= form.submit "Sign up" %>
+      <% if @page %>
+        <%= form.submit "Add User" %>
+      <% else %>
+        <%= form.submit "Sign up" %>
+      <% end %>
     </div>
 
   <% end %>
