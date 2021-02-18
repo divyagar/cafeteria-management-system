@@ -1,0 +1,6 @@
+production:
+  cloud_name: "dxvq0lrv2"
+  api_key: "839388851932311"
+  api_secret: "DJLrwI9hdpxFAjv9WR4GhIh1VOI"
+  secure: true
+  cdn_subdomain: true

@@ -13,6 +13,7 @@ class MenuItemsController < ApplicationController
     )
 
     if menuitem.save
+      menuitem.avatar.attach(params[:avatar])
       flash[:success] = "Menu item #{name} is created"
       redirect_to change_menus_items_path
     else

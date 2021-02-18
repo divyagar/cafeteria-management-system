@@ -16,7 +16,11 @@
       <% menuitems.each do |menuitem| %>
         <li class = "item">
           <p class = "item-name"> <%= menuitem.name %> </p>
-          <div class = "item-image"> </div>
+          <div class = "item-image">
+            <% if menuitem.avatar.attached? %>
+              <%= image_tag(url_for(menuitem.avatar)) %>
+            <% end %>
+          </div>
           <p class = "item-desc"> <%= menuitem.description %> </p>
           <p class = "item-price"> <i class="fas fa-rupee-sign"></i> <%= menuitem.price %> </p>
 
