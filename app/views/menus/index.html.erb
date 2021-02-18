@@ -33,8 +33,12 @@
 
         <div class = "second-row">
           <%= form.text_area :description, placeholder: "Description" %>
-          <%= form.file_field :avatar, class: 'form-control', direct_upload: true  %>
-          <%= form.submit "Add" %>
+        </div>
+
+        <div class = "third-row">
+        <label for="avatar"> MenuItem image </label>
+        <%= form.file_field :avatar, class: 'form-control', direct_upload: true  %>
+        <%= form.submit "Add" %>
         </div>
       <% end %>
     <% end %>

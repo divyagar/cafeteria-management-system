@@ -128,6 +128,8 @@ div.menu .menu-delete-btn {
 
 div.menu .add-item {
   margin: 10px 20px;
+  /* border: 1px solid; */
+  width: 80%;
 }
 
 div.menu .add-item div {
@@ -135,12 +137,33 @@ div.menu .add-item div {
   align-items: stretch;
 }
 
-div.menu div.first-row {
+div.menu div.first-row,
+div.third-row {
   height: 50px;
+  display: flex;
 }
 
 div.menu div.second-row {
   height: 70px;
+}
+
+div.third-row input[type=file] {
+  /* flex: 50%; */
+  /* width: 100%; */
+  display: none;
+}
+
+div.third-row label {
+  flex: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 5px 10px;
+  height: 47px;
 }
 
 div.menu .add-item input#name,
@@ -148,11 +171,11 @@ input#price {
   margin: 5px 10px;
   padding: 5px 8px;
   font-size: 18px;
-  width: 210px;
+  /* width: 210px; */
 }
 
 div.menu .add-item select#menu_id {
-  width: 220px;
+  /* width: 220px; */
   padding: 5px 8px;
   margin: 5px 10px;
   font-size: 18px;
@@ -165,18 +188,19 @@ div.menu .add-item textarea {
   margin: 5px 10px;
   padding: 5px 8px;
   font-size: 18px;
-  width: 460px;
+  width: 100%;
 }
 
 div.menu .add-item input[type=submit],
 .add-menu input[type=submit] {
   margin: 5px 10px;
   font-size: 18px;
-  width: 220px;
+  flex: 50%;
   cursor: pointer;
   background: #2196f3;
   border-radius: 10px;
   border: none;
+  height: 100%;
 }
 
 div.menu .add-menu {
