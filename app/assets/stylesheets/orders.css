@@ -28,6 +28,10 @@ div.orders-list table tr {
   padding: 20px;
 }
 
+div.orders-list tbody tr:nth-child(odd) {
+  background: #e3ecf5;
+}
+
 div.orders-list table td {
   padding: 0px 10px;
 }
