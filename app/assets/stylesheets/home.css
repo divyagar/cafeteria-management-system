@@ -2,7 +2,7 @@ div.home {
   height: 100vh;
   text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
-  /* background: url("/assets/cafeteria.jpg"); */
+  background: url("/assets/cafeteria.jpg");
   background-size: cover;
 }
 
