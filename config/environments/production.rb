@@ -120,4 +120,8 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.serve_static_assets = false
+  config.assets.compress = true
+  config.assets.compile = false
+  config.assets.digest = true
 end
