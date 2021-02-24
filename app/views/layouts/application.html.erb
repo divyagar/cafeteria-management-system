@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CafeteriaManagementSystem</title>
+    <title>Candle Cafe</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,7 +21,7 @@
       <div class = "nav">
         <div class = "main-nav">
           <h2>
-            Cafeteria
+            Candle Cafe
           </h2>
 
           <div class = "body-links">
@@ -46,6 +46,10 @@
               
               <p>
                 <%= link_to "Modify menu items", change_menus_items_path, method: "get" %>
+              </p>
+              
+              <p>
+                <%= link_to "Sales", sales_path, method: "get" %>
               </p>
             <% end %>
             

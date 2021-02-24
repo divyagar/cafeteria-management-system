@@ -1,0 +1,72 @@
+<div class = "sales">
+  <div class = "dates">
+    <h2> Select dates </h2>
+      <%= form_with url: fetch_data_path, method: "get" do |form| %>
+        <div class = "date-field">
+          <%= form.label :starting_date, "Start date:" %>
+          <%= form.date_field :starting_date %>
+        </div>
+        
+        <div class = "date-field">
+          <%= form.label :ending_date, "End date:" %>
+          <%= form.date_field :ending_date %>
+        </div>
+
+        <%= form.submit "Done" %>
+      <% end %>
+  </div>
+
+  <% if @contains_data %>
+    <div class = "sales-data">
+      <h2> Data </h2>
+        
+        <% if @total_orders == 0 %>
+          <div class = "no-data">
+            <p> There are no orders in specified date range </p>
+          </div>
+        <% else %>
+          <div class = "total-orders">
+            <p> Total Orders : <%= @total_orders %> </p>
+          </div>
+
+          <div class = "orders">
+            <table>
+              <thead>
+                <tr>
+                  <th> Order id </th>
+                  <% if @current_user.role == "Owner" %>
+                    <th> Customer Name </th>
+                  <% end %>
+                  <th> Ordered on </th>
+                  <th> Invoice </th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <% @orders.each do |order| %>
+                  <tr>
+                    <td> <%= order.id %> </td>
+                    <% if @current_user.role == "Owner" %>
+                      <td> <%= order.getUserName(order.user_id) %> </td>
+                    <% end %>
+                    <td> <%=  order.date %></td>
+
+                    <td>
+                      <%= form_with url: checkouts_path, method: "get" do |form| %>
+                        <%= form.hidden_field :order_id, value: order.id %>
+                        <%= form.submit "Invoice", 
+                          class: "order-deliver-btn"
+                        %>
+                      <% end %>
+                    </td>
+
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </h2>
+    </div>
+  <% end %>
+</div>
